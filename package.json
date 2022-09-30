@@ -1,0 +1,24 @@
+{
+  "name": "placement-cell",
+  "version": "1.0.0",
+  "description": "An app to keep track of the students interviews",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnushaSSR/PlacementCell.git"
+  },
+  "keywords": [
+    "Interviews",
+    "placement"
+  ],
+  "author": "Anusha S S R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnushaSSR/PlacementCell/issues"
+  },
+  "homepage": "https://github.com/AnushaSSR/PlacementCell#readme"
+}
