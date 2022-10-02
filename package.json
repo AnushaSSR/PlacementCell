@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/AnushaSSR/PlacementCell/issues"
   },
-  "homepage": "https://github.com/AnushaSSR/PlacementCell#readme"
+  "homepage": "https://github.com/AnushaSSR/PlacementCell#readme",
+  "dependencies": {
+    "ejs": "^3.1.8"
+  }
 }
