@@ -22,6 +22,14 @@
   },
   "homepage": "https://github.com/AnushaSSR/PlacementCell#readme",
   "dependencies": {
-    "ejs": "^3.1.8"
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.3",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
   }
 }

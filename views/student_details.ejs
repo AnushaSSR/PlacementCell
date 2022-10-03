@@ -1,0 +1,29 @@
+<h1> Student details</h1>
+<!-- // sending the data so post -->
+<section id="student-list-container">
+    <%if (locals.user){ %>
+        <h4> Students: </h4>
+        <!-- <%if (locals.user){ %> -->
+       <!-- <% } %>  -->
+        <div id="posts-container">
+            <ul id="students-list">
+                <li></li>
+                <li></li>
+
+            </ul>
+        </div>
+                
+        <form action="/students/add" id="add-new-student" method="POST">
+        
+            <select id="studentsList">
+                <% for(student of students) {%> 
+                 <option><%= student.content %></option>
+                 <% } %>
+             </select>
+             <input type="submit" value="Add New Student">
+         </form>
+         <% } %>
+        
+</section>
+
+
