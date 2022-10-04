@@ -4,7 +4,8 @@ const router = express.Router();
 
 const studentController = require('../controllers/student_controller');
 
-router.post('/create',passport.checkAuthentication, studentController.create);
+router.get('/student-details',studentController.display);
+router.post('/add-student', studentController.create);
 
 module.exports= router;
 

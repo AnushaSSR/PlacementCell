@@ -15,19 +15,7 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required: true,
       
-    },
-    students: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Student'
-        }
-    ],
-    interviews: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Interview'
-        }
-    ]
+    }
 }, {
         timestamps: true
 });

@@ -13,7 +13,6 @@ const studentSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
-
     },
     batch: {
         type: String,
@@ -21,15 +20,13 @@ const studentSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: [placed, not_placed],
+        enum: ['placed','not_placed'],
         required: true
     },
-    dob: {
-        type: Date,
-        required: true,
-    },
- 
-
+    scores: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Scores"
+    }
 }, {
     timestamps: true
 });

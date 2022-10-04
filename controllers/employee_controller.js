@@ -4,7 +4,7 @@ const Employee = require('../models/employee');
 
 module.exports.signUp = function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/employee/students');
+        return res.redirect('/students/student-details');
     }
     return res.render('employee_sign_up',{
         title:"Sign Up Page"
@@ -15,7 +15,7 @@ module.exports.signUp = function(req,res){
 
 module.exports.signIn = function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/employee/students');
+        return res.redirect('/students/student-details');
     }
 
     return res.render('employee_sign_in',{
@@ -28,8 +28,8 @@ module.exports.signIn = function(req,res){
 // get the signup data
 
 module.exports.create= function(req,res){
-    //TODO later
-    console.log(req);
+    
+    // console.log(req);
     if(req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }
@@ -41,12 +41,12 @@ module.exports.create= function(req,res){
             Employee.create(req.body, function(err,user){
                 if(err){console.log('error in creating user while signing up'); return}
 
-                console.log("user created");
+                // console.log("user created");
                 return res.redirect('/employee/sign-in');
 
             })
         }else {
-            console.log("User already exists");
+            // console.log("User already exists");
             return res.redirect('back');
         }
     });
@@ -54,8 +54,8 @@ module.exports.create= function(req,res){
 }
 
 module.exports.createSession = function(req,res){
-    console.log("hello");
-    return res.redirect('/employee/students');
+    // console.log("hello");
+    return res.redirect('/students/student-details');
 }
 
 module.exports.destroySession = function(req,res){
@@ -69,11 +69,12 @@ module.exports.destroySession = function(req,res){
 }
 
 
-module.exports.students = function(req,res){
-    if(req.isAuthenticated()){
-    return res.render('student_details',{
-        title:"Student list Page"
-    });
-return res.redirect('/employee/students')
-    }
-}
+// module.exports.students = function(req,res){
+//     if(req.isAuthenticated()){
+//     return res.render('student_details',{
+//         title:"Student list Page"
+//     });
+//     }
+
+
+// }

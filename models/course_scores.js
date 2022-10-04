@@ -12,7 +12,11 @@ const scoresSchema = new mongoose.Schema({
     react_score: {
         type: String,
         required: true,
-    } 
+    },
+    student:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student'
+    }
 }, {
         timestamps: true
 });

@@ -1,29 +1,107 @@
-<h1> Student details</h1>
+
 <!-- // sending the data so post -->
 <section id="student-list-container">
-    <%if (locals.user){ %>
-        <h4> Students: </h4>
-        <!-- <%if (locals.user){ %> -->
-       <!-- <% } %>  -->
-        <div id="posts-container">
-            <ul id="students-list">
-                <li></li>
-                <li></li>
-
-            </ul>
-        </div>
-                
-        <form action="/students/add" id="add-new-student" method="POST">
-        
-            <select id="studentsList">
-                <% for(student of students) {%> 
-                 <option><%= student.content %></option>
-                 <% } %>
-             </select>
-             <input type="submit" value="Add New Student">
-         </form>
-         <% } %>
-        
+    <hr>
+    <h4> Students list</h4><hr>
+        <%if (locals.user){ %>
+       
+    <div id="students-list-container">
+        <table id="students-table" style="border: 2px;" class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th rowspan="2"> Name</th>
+                    <th rowspan="2"> College</th>
+                    <th rowspan="2"> Email</th>
+                    <th rowspan="2"> Batch</th>
+                    <th rowspan="2"> Status</th>
+                    <th colspan="3" style="text-align:center;">Scores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let student of students) {%>
+                    <tr class="table-light">
+                        <td>
+                            <%= student.name %>
+                        </td>
+                        <td>
+                            <%= student.college %>
+                        </td>
+                        <td>
+                            <%= student.email%>
+                        </td>
+                        <td>
+                            <%= student.batch %>
+                        </td>
+                        <td>
+                            <%= student.status %>
+                        </td>
+                        <td>
+                            <span>DSA: <%= student.scores.dsa_score %></span>
+                            <span>Webd: <%= student.scores.webd_score %></span>
+                            <span>React: <%= student.scores.react_score %></span>
+                        </td>
+                    </tr>  
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+              
+    <div id="add-student-form"><h4>Add New Student:</h4><hr>
+        <form action="/students/add-student" id="add-new-student" method="POST">
+            <table class="table table-hover">
+                <tr>
+                    <td>Student name: </td>
+                    <td><input type="text" name="name" id="student-name" placeholder="Enter Full name" required></td>
+                </tr>
+                <tr>
+                    <td>College Name:</td>
+                    <td><input type="text" name="college" id="student-college" placeholder="Enter College Name" required></td>
+                </tr>
+                <tr>
+                    <td>Student Email</td>
+                    <td><input type="email" name="email" id="student-email" placeholder="Enter email" required></td>
+                </tr>
+                <tr>
+                    <td>Select the batch</td>
+                    <td>
+                        <select name="batch" id="select-batch" required>
+                            <option value="" disabled selected> Select student batch</option>
+                            <option value="CC Fresher">Career Camp Fresher</option>
+                            <option value="CC Professional">Career Camp Professional</option>
+                            <option value="interview prep">Interview Preparation</option>
+                            <option value="python">PYTHON</option>
+                            <option value="dsa">DSA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select status</td>
+                    <td>
+                        <select name="status" id="select-status" required>
+                            <option value="" selected disabled>Placed/Not Placed</option>
+                            <option value="not_placed" > Not Placed</option>
+                            <option value="placed">placed</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DSA Score:</td>
+                    <td><input type="text" name="dsa_score" placeholder="Enter DSA score"></td>
+                </tr>
+                <tr>
+                    <td>Webd Score:</td>
+                    <td><input type="text" name="webd_score" placeholder="Enter Web Dev score"></td>
+                </tr>
+                <tr>
+                    <td>React Score:</td>
+                    <td><input type="text" name="react_score" placeholder="Enter React JS score"></td>
+                </tr>
+                <td colspan="10" rowspan="10"><input type="submit" value="Add New Student"></td>
+            </table>
+        </form>    
+    </div>     
+    <% } %> 
 </section>
 
 

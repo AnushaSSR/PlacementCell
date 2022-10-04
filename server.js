@@ -22,8 +22,8 @@ app.use(require('cookie-parser')());
 //telling the app to use it, to be used before the routes
 app.use(expressLayouts);
 
-// app.set('layout extractStyles',true);
-// app.set('layout extractLayouts', true);
+app.set('layout extractStyles',true);
+app.set('layout extractLayouts', true);
 //set the app's view engine to ejs
 app.set('view engine', 'ejs');
 app.set('views','./views');

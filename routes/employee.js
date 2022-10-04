@@ -25,8 +25,5 @@ router.post('/create-session', passport.authenticate(
 //destroy the session of a employee
 router.get('/sign-out', employeeController.destroySession);
 
-// display details only if the employee is signed in
-router.get('/students', passport.checkAuthentication,employeeController.students);
-
 
 module.exports = router;
