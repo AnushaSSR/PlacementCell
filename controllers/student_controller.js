@@ -33,12 +33,7 @@ module.exports.addStudent = async function (req, res) {
             await student.save();
                 let students = await Student.findOne({}).populate("score");
            
-            return res.render("student_details", {
-                    title:"Placement Cell | Student Details",
-           
-                    students: students,
-                    scores: scores
-            });
+            return res.redirect("back");
         }
     
 }

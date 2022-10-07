@@ -12,7 +12,7 @@ router.post('/allocate-student/:id', interviewController.allocateStudent);
 
 router.get('/get-allocated-students/:id', interviewController.getAllocatedStudents);
 
-// router.post('/allocate', interviewController.allocate);
+router.post('/update-results/:interview', interviewController.updateResults);
 
 module.exports= router;
 
