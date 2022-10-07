@@ -3,7 +3,7 @@ const Scores = require('../models/course_scores');
 const { students } = require('./employee_controller');
 
 
-module.exports.create = async function (req, res) {
+module.exports.addStudent = async function (req, res) {
     try {
         let student = await Student.find({ email: req.body.email });
        
@@ -28,6 +28,7 @@ module.exports.create = async function (req, res) {
                 student: student._id
             });
 
+            
             student.scores = scores._id;
             await student.save();
                 let students = await Student.findOne({}).populate("score");
@@ -48,10 +49,10 @@ module.exports.create = async function (req, res) {
 }
 
 
-module.exports.display =async function(req, res) {
+module.exports.displayStudents =async function(req, res) {
     try{
         let students= await Student.find().populate("scores");
-        console.log("styudent details rendred are", students);
+        // console.log("styudent details rendred are", students);
         return res.render("student_details",{
             title:"Placement Cell | Student Details",
             students: students

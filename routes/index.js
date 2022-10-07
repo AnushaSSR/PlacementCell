@@ -9,5 +9,7 @@ router.get('/', homeController.home);
 //use the employee route
 router.use('/employee',require('./employee'));
 router.use('/students',require('./students'));
+router.use('/interviews',require('./interviews'));
+
 console.log("Router loaded");
 module.exports = router;

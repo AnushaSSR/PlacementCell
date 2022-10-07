@@ -4,8 +4,8 @@ const router = express.Router();
 
 const studentController = require('../controllers/student_controller');
 
-router.get('/student-details',studentController.display);
-router.post('/add-student', studentController.create);
+router.get('/display-students',studentController.displayStudents);
+router.post('/add-student', studentController.addStudent);
 
 module.exports= router;
 

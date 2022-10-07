@@ -4,7 +4,7 @@ const Employee = require('../models/employee');
 
 module.exports.signUp = function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/students/student-details');
+        return res.redirect('/');
     }
     return res.render('employee_sign_up',{
         title:"Sign Up Page"
@@ -15,7 +15,7 @@ module.exports.signUp = function(req,res){
 
 module.exports.signIn = function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/students/student-details');
+        return res.redirect('/');
     }
 
     return res.render('employee_sign_in',{
@@ -55,7 +55,7 @@ module.exports.create= function(req,res){
 
 module.exports.createSession = function(req,res){
     // console.log("hello");
-    return res.redirect('/students/student-details');
+    return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){

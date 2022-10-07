@@ -1,6 +1,6 @@
 
 <!-- // sending the data so post -->
-<section id="student-list-container">
+<section id="student-details">
     <hr>
     <h4> Students list</h4><hr>
         <%if (locals.user){ %>
@@ -48,7 +48,7 @@
     <hr>
               
     <div id="add-student-form"><h4>Add New Student:</h4><hr>
-        <form action="/students/add-student" id="add-new-student" method="POST">
+        <form action="/students/add-student" id="add-new-student-form" method="POST">
             <table class="table table-hover">
                 <tr>
                     <td>Student name: </td>
@@ -97,7 +97,7 @@
                     <td>React Score:</td>
                     <td><input type="text" name="react_score" placeholder="Enter React JS score"></td>
                 </tr>
-                <td colspan="10" rowspan="10"><input type="submit" value="Add New Student"></td>
+                <td colspan="2" style="text-align: center;"><input type="submit" value="Add New Student"></td>
             </table>
         </form>    
     </div>     
