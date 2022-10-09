@@ -1,33 +1,27 @@
 <%= title %>
-
-<h3> Updating results of the students attended interview held by <%= interview.company_name %> on <%= interview.date %> </h3>
-<section id="update-results" >
-    <div id="students-results-container">
-       <% for (s of interview.studentsList){ %>
-        <hr>
-            <form action="/interviews/update-results/<%= interview._id%>" method="POST" >
-                <div>Name: <%= s.student.name %></div>
-                <div>Batch: <%= s.student.batch %></div>
-                <div>Result: <%= s.result %>*******************************<%= s.student.id %></div>
-                
-                <div> Interview held on <%= interview.date %></div>
-                <select name="result" > <td>
-                    <option value=" " selected disabled><%= s.result %>  </option>
-                    <option value="PASS" >PASS</option>
-                    <option value="FAIL">FAIL</option>
-                    <option value="ON_HOLD">ON_HOLD</option>
-                    <option value="DIDNT_ATTEMPT">DIDNT_ATTEMPT</option>
-                </select>
-                <input type="hidden" name="student" value="<%= s.student.id %>">
-                <input class="btn btn-primary" type="submit" value="Update" title="update results of <%= s.student.name %>" >
-            </form>
-            <hr>
-        <% } %>  
-
-    </div> 
-</section> 
-
-        
-
-
-
+<%if (locals.user){ %>
+    <h3> Updating results of the students attended interview held by <%= interview.company_name %> on <%= interview.date %> </h3>
+    <section id="update-results" >
+        <div id="students-results-container">
+            <% for (s of interview.studentsList){ %>
+                <hr>
+                <form action="/interviews/update-results/<%= interview._id%>" method="POST" >
+                    <div>Name: <%= s.student.name %></div>
+                    <div>Batch: <%= s.student.batch %></div>
+                    <div>Result: <%= s.result %></div>
+                    <div> Interview held on <%= interview.date %></div>
+                    <select name="result" > <td>
+                        <option value=" " selected disabled><%= s.result %>  </option>
+                        <option value="PASS" >PASS</option>
+                        <option value="FAIL">FAIL</option>
+                        <option value="ON_HOLD">ON_HOLD</option>
+                        <option value="DIDNT_ATTEMPT">DIDNT_ATTEMPT</option>
+                    </select>
+                    <input type="hidden" name="student" value="<%= s.student.id %>">
+                    <input class="btn btn-primary" type="submit" value="Update" title="update results of <%= s.student.name %>" >
+                </form>
+                <hr>
+            <% } %>  
+        </div> 
+    </section> 
+<% } %>

@@ -3,14 +3,11 @@ const interviewSchema = new mongoose.Schema({
     company_name: {
         type: String,
         required: true,
-
     },
     date: {
         type:Date,
         required: true
-    } ,
-
-    
+    } ,    
     studentsList: [
         {
             student: {
@@ -28,5 +25,4 @@ const interviewSchema = new mongoose.Schema({
 });
 
 const Interviews = mongoose.model('Interviews', interviewSchema);
-
 module.exports = Interviews;

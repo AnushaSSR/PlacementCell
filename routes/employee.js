@@ -1,6 +1,6 @@
-// Entry point for all the routes
 const express= require('express');
 const router =express.Router();
+
 //import passport for authentication
 const passport = require('passport');
 
@@ -22,8 +22,7 @@ router.post('/create-session', passport.authenticate(
     {failureRedirect: '/employee/sign-in'},
 ), employeeController.createSession);
 
-//destroy the session of a employee
+//destroy the session of an employee
 router.get('/sign-out', employeeController.destroySession);
-
 
 module.exports = router;

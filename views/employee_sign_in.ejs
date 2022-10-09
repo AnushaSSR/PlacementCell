@@ -1,7 +1,7 @@
-<h1> Employee Signin page</h1>
-<!-- // sending the data so post -->
+<h1> <%= title %></h1>
+
+<!-- sending the data create a session -->
 <form action="/employee/create-session" method="POST">
-       <!-- // type email is html5 element which will automatically validate -->
     <input type="email" name="email" placeholder="Your Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="submit" value="Sign In">

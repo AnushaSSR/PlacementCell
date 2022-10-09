@@ -2,17 +2,13 @@ const Student = require('../models/student');
 const Scores = require('../models/course_scores');
 const { students } = require('./employee_controller');
 
-
+//controller to a new student to the list
 module.exports.addStudent = async function (req, res) {
     try {
         let student = await Student.find({ email: req.body.email });
-       
         if (student && student.length) {
-            // console.log("student exists");
             return res.redirect('back');         
-        }
-        else {
-            // console.log("Adding Student");        
+        } else {
             let student = await Student.create({
                 name: req.body.name,
                 college: req.body.college,
@@ -20,41 +16,34 @@ module.exports.addStudent = async function (req, res) {
                 batch: req.body.batch,
                 status: req.body.status,
             });
-
             let scores = await Scores.create({
                 dsa_score: req.body.dsa_score,
                 webd_score: req.body.webd_score,
                 react_score: req.body.react_score,
                 student: student._id
-            });
-
-            
+            });           
             student.scores = scores._id;
             await student.save();
-                let students = await Student.findOne({}).populate("score");
-           
+            let students = await Student.findOne({}).populate("score");
             return res.redirect("back");
         }
-    
-}
-    catch (err) {
-        if (err) { console.log("error in adding student", err); return }
+    } catch(err) {
+        if(err) {console.log("Error in adding student", err); return }
         return res.redirect('back');
     }
-}
+};
 
 
+//controller to display/render the students lists
 module.exports.displayStudents =async function(req, res) {
-    try{
+    try {
         let students= await Student.find().populate("scores");
-        // console.log("styudent details rendred are", students);
         return res.render("student_details",{
-            title:"Placement Cell | Student Details",
+            title:"Placement Cell | Student Details Page",
             students: students
         });
-    }
-        catch(err) {console.log("error in fetching students list",err);
+    } catch(err) {console.log("error in fetching students list",err);
         return res.redirect('back');
     };
-}
+};
 

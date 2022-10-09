@@ -1,14 +1,14 @@
-<!-- ctrl+shift +c to launch cmd  -->
 <%= title %>
-<!-- // sending the data so post -->
-<section id="interview-details">
+<!-- display details only if the employee is logged in -->
+<%if (locals.user){ %>
+    <!-- Section to show the list of interviews -->
+    <section id="interview-details">
     <hr>
     <h4> Interviews list</h4><hr>
     <% for(let interview of interviews) {%>  
         <% let id= interview._id %> 
         <div class="card interview-card">
-            <div class="card-header" id="interview-company">
-                <%= interview.company_name %>
+            <div class="card-header" id="interview-company"><%= interview.company_name %>
                 <a href="/interviews/get-allocated-students/<%= interview._id %>" class="allocated-students" id="update-results-<%= interview._id %>" > update results</a> 
             </div>
             <div class="card-body">
@@ -18,135 +18,91 @@
                 <%= date.toString();
                  %> 
               </p>
-            </div>
-            
-          </div>
-          <div class="card-footer">
+            </div>   
+        </div>
+        <div class="card-footer">
             <a  class="btn btn-primary" id="allocate-student-button-<%= interview._id %>" onclick="allocateStudent('<%= interview._id %>')">Allocate Student</a>            
         </div>
-<section id="<%= interview._id %>" style="display: none;">
-    <div id="students-list-container" >
-       
-        <form action="/interviews/allocate-student/<%= interview._id %>" method="POST" >
 
-            <table id="students-table" style="border: 2px;" class="table table-dark table-hover"  >
+        <!-- Section to get the students list to allocaet to the interview -->
+        <section id="<%= interview._id %>" style="display: none;">
+            <div id="students-list-container" >
+                <form action="/interviews/allocate-student/<%= interview._id %>" method="POST" >
+                    <table id="students-table" style="border: 2px;" class="table table-dark table-hover"  >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th rowspan="2"> Name</th>
+                                <th rowspan="2"> Email</th>
+                                <th rowspan="2"> Batch</th>
+                                <th rowspan="2"> Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let student of students) {%>
+                                <tr class="table-light">
+                                    <td><input type="checkbox" value="<%= student._id%>" name="checkbox[]"></td>
+                                    <td name="std_name" value="">
+                                        <%= student.name %>
+                                    </td>
+                                    <td>
+                                        <%= student.email%>
+                                    </td>
+                                    <td>
+                                        <%= student.batch %>
+                                    </td>
+                                    <td>
+                                        <%= student.status %>
+                                    </td>
+                                </tr>                  
+                            <% } %>
+                            <td><input type="submit" name="Allocate to interview" value="Allocate"></td>
+                        </tbody>
+                    </table>
+                </form>
+            </div> 
+        </section> 
+        <% } %>
+        <hr>       
+    </section>
 
-                <thead>
+    <!-- Form to add a new interview -->
+    <section id="add-interview">
+    <hr>
+        <div id="add-new-interview"><h4>Add New Interview:</h4>
+        <hr>
+            <form action="/interviews/add-interview" id="add-new-interview-form" method="POST">
+                <table class="table table-hover">
                     <tr>
-                        <th></th>
-                        <th rowspan="2"> Name</th>
-                        <th rowspan="2"> Email</th>
-                        <th rowspan="2"> Batch</th>
-                        <th rowspan="2"> Status</th>
+                        <td>Company name: </td>
+                        <td><input type="text" name="company_name" id="company-name" placeholder="Enter Company name" required></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <% for(let student of students) {%>
-                        <tr class="table-light">
-                            <!-- <td><p name="id" value="<%= interview._id %>"><%=interview._id%></p></td> -->
-                            <td><input type="checkbox" value="<%= student._id%>" name="checkbox[]"></td>
-                            <td name="std_name" value="">
-                                <%= student.name %>
-                            </td>
-                            <td>
-                                <%= student.email%>
-                            </td>
-                            <td>
-                                <%= student.batch %>
-                            </td>
-                            <td>
-                                <%= student.status %>
-                            </td>
-                        </tr>                  
-                    <% } %>
-                    <td><input type="submit" name="Allocate to interview" value="Allocate"></td>
-                </tbody>
-            </table>
-        </form>
-    </div> 
-</section> 
+                    <tr>
+                        <td>Date: </td>
+                        <td><input type="date" name="date" required id="date"></input></td>
+                    </tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Add new interview"></td>
+                </table>
+            </form>    
+        </div>     
+    </section>
 
-
-
-          
-          
-          <% } %>
-          <hr>
-
-          
-    
-</section>
-
-
-<section id="add-interview">
-    <hr>
-    <div id="add-new-interview"><h4>Add New Interview:</h4>
-    <hr>
-        <form action="/interviews/add-interview" id="add-new-interview-form" method="POST">
-            <table class="table table-hover">
-                <tr>
-                    <td>Company name: </td>
-                    <td><input type="text" name="company_name" id="company-name" placeholder="Enter Company name" required></td>
-                </tr>
-                <tr>
-                    <td>Date: </td>
-                    <td><input type="date" name="date" required id="date"></input></td>
-                </tr>
-                <td colspan="2" style="text-align: center;"><input type="submit" value="Add new interview"></td>
-            </table>
-        </form>    
-    </div>     
-</section>
-
-
-<script>
-//     function allocateStudent(id) {
-//         var node = document.getElementById(id);
-//         // console.log(node);
-
-//         var button=document.getElementById("allocate-student-button-"+id);
-//         if (button.innerText=='Allocate Student') {
-//          button.innerText = 'Close X';
-//         }
-//         else{
-//             button.innerText = 'Allocate Student';
-//  }
-
-//     //     var childElement = document.querySelectorAll("#id > *" )
-      
-//                if (node.style.display=='none') {
-//          node.style.display = 'block';
-//  }
-//     else {
-//        node.style.display = 'none';
-//     //     return id;
-    
-//      }
-// }
-
-
-
-function allocateStudent(id) {
+    <!-- Script to trigger onclick event on Allocate Student button  -->
+    <script>
+    function allocateStudent(id) {
         var node = document.getElementById(id);
-        // console.log(node);
-
         var button=document.getElementById("allocate-student-button-"+id);
         if (button.innerText=='Allocate Student') {
-         button.innerText = 'Close X';
-        }
-        else{
+             button.innerText = 'Close X';
+        } else {
             button.innerText = 'Allocate Student';
- }
-
-    //     var childElement = document.querySelectorAll("#id > *" )
-      
-               if (node.style.display=='none') {
-         node.style.display = 'block';
- }
-    else {
-       node.style.display = 'none';
-    //     return id;
-    
-     }
-}
-</script>
+        }
+   
+        if (node.style.display=='none') {
+             node.style.display = 'block';
+        } else {
+        node.style.display = 'none';   
+        }
+    }
+    </script>
+<% } %>

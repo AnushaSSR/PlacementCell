@@ -1,7 +1,6 @@
-<h1> Employee Signup page</h1>
-<!-- // sending the data so post -->
+<h1><%= title%></h1>
+<!-- // sending the data to createa user in db -->
 <form action="/employee/create" method="POST">
-       <!-- // type email is html5 element which will automatically validate -->
     <input type="text" name="name" placeholder="Your User Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <input type="password" name="password" placeholder="Password" required>

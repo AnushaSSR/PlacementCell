@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+
+<% for(j of jobsList.jobs_results) {%>
+
+<div> Title: <%= j.title %></div>
+<div> Company: <%=j.company_name%></div>
+<div> Location <%=j.location %></div>
+<div> Click to apply : <%= j.via%></div>
+<br>
+<%}%>

@@ -1,9 +1,9 @@
+<h1><%= title %></h1>
+<%if (locals.user){ %>
 
-<!-- // sending the data so post -->
 <section id="student-details">
     <hr>
     <h4> Students list</h4><hr>
-        <%if (locals.user){ %>
        
     <div id="students-list-container">
         <table id="students-table" style="border: 2px;" class="table table-dark table-hover">
@@ -101,7 +101,8 @@
             </table>
         </form>    
     </div>     
-    <% } %> 
+    
 </section>
+<% } %> 
 
 
