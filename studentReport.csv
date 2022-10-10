@@ -1,6 +1,6 @@
 Student ID,Student Name,Student College,Student Status,DSA Final Score,WebD Final Score,React Final Score,Interview Date,Interview Company,Interview Student Result
-633c0bce3b3e94a97479c6f9,anusha,jntu,not_placed,99,98,100,21/10/2022,c1,PASS
-633c0c093b3e94a97479c704,surya,au,placed,99,98,99,21/10/2022,c1,DIDNT_ATTEMPT
+633c0bce3b3e94a97479c6f9,anusha,jntu,not_placed,99,98,100,21/10/2022,c1,FAIL
+633c0c093b3e94a97479c704,surya,au,placed,99,98,99,21/10/2022,c1,PASS
 633c1603f070d3ada225362b,anusha,q,not_placed,85,95,89,21/10/2022,c1,ON_HOLD
 633c13dddc4d2c96c993aebf,a,a,not_placed,85,95,96,21/10/2022,c1, 
 633c2024ec838e2cab9fb2fb,anusha,a,not_placed,85,95,99,21/10/2022,c1,FAIL

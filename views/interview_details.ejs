@@ -1,14 +1,37 @@
-<%= title %>
+<link rel="stylesheet" href="/css/interviews.css">
+
 <!-- display details only if the employee is logged in -->
 <%if (locals.user){ %>
+        <!-- Form to add a new interview -->
+    
+        <section id="add-interview">
+            <hr>
+                <div id="add-new-interview"><h4>Add New Interview:</h4>
+                <hr>
+                    <form action="/interviews/add-interview" id="add-new-interview-form" method="POST">
+                        <div class="form-outline mb-4">
+                            <label for=""> <td>Company name: </label>
+                            <input type="text" name="company_name" id="company-name" class="form-control" placeholder="Enter Company Name" required>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label for=""> <td>Date: </label>
+                            <input type="date" name="date" id="date" class="form-control" placeholder="Select interview date" required>
+                        </div>
+                </form>    
+                </div>     
+            </section>
+        
+    
     <!-- Section to show the list of interviews -->
     <section id="interview-details">
     <hr>
-    <h4> Interviews list</h4><hr>
+    <h2 class="text-center"> Interviews list</h2>
+    <div id="interview-cards">    
     <% for(let interview of interviews) {%>  
         <% let id= interview._id %> 
         <div class="card interview-card">
             <div class="card-header" id="interview-company"><%= interview.company_name %>
+                <br>
                 <a href="/interviews/get-allocated-students/<%= interview._id %>" class="allocated-students" id="update-results-<%= interview._id %>" > update results</a> 
             </div>
             <div class="card-body">
@@ -19,16 +42,17 @@
                  %> 
               </p>
             </div>   
-        </div>
+        
         <div class="card-footer">
             <a  class="btn btn-primary" id="allocate-student-button-<%= interview._id %>" onclick="allocateStudent('<%= interview._id %>')">Allocate Student</a>            
         </div>
+    </div>
 
         <!-- Section to get the students list to allocaet to the interview -->
-        <section id="<%= interview._id %>" style="display: none;">
+        <section id="<%= interview._id %>" style="display: none;" class="student-list">
             <div id="students-list-container" >
                 <form action="/interviews/allocate-student/<%= interview._id %>" method="POST" >
-                    <table id="students-table" style="border: 2px;" class="table table-dark table-hover"  >
+                    <table id="students-table" style="border: 2px;" class="table table-dark table-hover table-style"  >
                         <thead>
                             <tr>
                                 <th></th>
@@ -40,6 +64,7 @@
                         </thead>
                         <tbody>
                             <% for(let student of students) {%>
+
                                 <tr class="table-light">
                                     <td><input type="checkbox" value="<%= student._id%>" name="checkbox[]"></td>
                                     <td name="std_name" value="">
@@ -54,38 +79,23 @@
                                     <td>
                                         <%= student.status %>
                                     </td>
-                                </tr>                  
+                                </tr> 
+                                
+                 
                             <% } %>
-                            <td><input type="submit" name="Allocate to interview" value="Allocate"></td>
-                        </tbody>
+                                                </tbody>
                     </table>
+                    <input type="submit" class="btn btn-primary" name="Allocate to interview" id="allocate-post" value="Allocate">
+
                 </form>
             </div> 
         </section> 
         <% } %>
-        <hr>       
+    </div>
+
+               
     </section>
 
-    <!-- Form to add a new interview -->
-    <section id="add-interview">
-    <hr>
-        <div id="add-new-interview"><h4>Add New Interview:</h4>
-        <hr>
-            <form action="/interviews/add-interview" id="add-new-interview-form" method="POST">
-                <table class="table table-hover">
-                    <tr>
-                        <td>Company name: </td>
-                        <td><input type="text" name="company_name" id="company-name" placeholder="Enter Company name" required></td>
-                    </tr>
-                    <tr>
-                        <td>Date: </td>
-                        <td><input type="date" name="date" required id="date"></input></td>
-                    </tr>
-                    <td colspan="2" style="text-align: center;"><input type="submit" value="Add new interview"></td>
-                </table>
-            </form>    
-        </div>     
-    </section>
 
     <!-- Script to trigger onclick event on Allocate Student button  -->
     <script>

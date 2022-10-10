@@ -1,10 +1,55 @@
-<h1><%= title%></h1>
-<!-- // sending the data to createa user in db -->
-<form action="/employee/create" method="POST">
+<!-- <h1><%= title%></h1>
+// sending the data to createa user in db -->
+<!-- <form action="/employee/create" method="POST">
     <input type="text" name="name" placeholder="Your User Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="password" name="confirm_password" placeholder="Confirm Password" required>
     <input type="submit" value="Sign Up">
-</form>
+</form> --> 
+<link rel="stylesheet" href="/css/signup.css">
 
+<div id="signup">
+    <h4 class="text"> Employee Sign Up Form</h4>
+    <div id="signup-form">
+    <form action="/employee/create" method="POST">
+      <div class="form-outline mb-4">
+        <input type="text" name="name" class="form-control" placeholder="Your User Name" required>
+       
+      </div>
+
+      <!-- Username input -->
+      <!-- <div class="form-outline mb-4">
+        <input type="text" id="registerUsername" class="form-control" />
+        <label class="form-label" for="registerUsername">Username</label>
+      </div> -->
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email" name="email" placeholder="Your Email" class="form-control" required>
+  
+        <!-- <label class="form-label" for="registerEmail">Email</label> -->
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" name="password" placeholder="Enter Password" class="form-control" required>
+<!--     
+        <input type="password" id="registerPassword" class="form-control" />
+        <label class="form-label" for="registerPassword">Password</label> -->
+      </div>
+
+      <!-- Repeat Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+<!--     
+        <input type="password" id="registerRepeatPassword" class="form-control" />
+        <label class="form-label" for="registerRepeatPassword">Repeat password</label> -->
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign Up">
+
+     
+</form>
+</div>
+</div>

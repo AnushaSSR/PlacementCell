@@ -1,10 +1,50 @@
-<h1><%= title %></h1>
+<link rel="stylesheet" href="/css/external_jobs.css"><h1 class="text-center"><%= title %></h1>
+<hr>
+<section id="external-jobs">
+    <h4> Google Job Search Results</h4>
+    <div class="text-center row card-div" style="margin: 1% 1% 0 1%; border: 1px solid grey">
+        <% for(j of externalJobsList.jobs_results) {%> 
+                <div class="card text-white bg-dark mb-3" style="width: 18rem; margin:10px">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=j.company_name%></h5>
+                        <p class="card-text"><%= j.title %></p>
+                    </div>
+                </div>
+           
+        <% } %>   
+    </div>
+    <div class="text-center" style="margin: 0 1% 1% 1%; border: 1px solid grey">
+    <a href="<%= externalJobsList.search_metadata.google_jobs_url %>" target="_blank" class="btn btn-primary"> Click to Check details and apply</a>
+</div>
+</section>
 
-<% for(j of jobsList.jobs_results) {%>
+<section id="remote-jobs">
+    <hr>
+    <hr>
+    <h4> Remote Jobs </h4> 
+    <hr>
+    
+    <% for(j of remoteJobsList.jobs) {%>
+    <div class="card text-center" >
+        <div class="card-header" >
+            <%=j.company_name%>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Title: <%= j.title %></h5>
+          <p class="card-text">salary: <%= j.salary %></p>
+          <p class="card-text">Job Type: <%= j.job_type %></p>
+          <a href="<%= j.url %>" target="_blank" class="btn btn-primary">Click to Apply</a>
+        </div>
+        <div class="card-footer text-muted">
+            <% let dateVal = new Date(j.publication_date);
+            let date= (dateVal.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})); %>
+           Published on 
+          <%= date.toString() %>
+        </div>
+                 </div>
+                 <hr>
+                 <% } %>
 
-<div> Title: <%= j.title %></div>
-<div> Company: <%=j.company_name%></div>
-<div> Location <%=j.location %></div>
-<div> Click to apply : <%= j.via%></div>
-<br>
-<%}%>
+</section>
+
+

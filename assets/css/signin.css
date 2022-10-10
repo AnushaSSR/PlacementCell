@@ -1,0 +1,40 @@
+main {
+    background-color: azure;
+}
+
+body {
+    border: 2px solid #0aa1f7;
+}
+
+#signin {
+    margin: 5% 10%;
+    text-align: center;
+    width: 80%;
+}
+
+#table-style {
+    border: 2px solid #0aa1f2;
+}
+
+.form-outline {
+    color: #0aa1f2;
+    background-color: #0aa1f2;
+}
+
+#signin-form {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.btn-primary {
+    background-color: #0aa1f7;
+}
+
+form {
+    vertical-align: center;
+    text-align: center;
+    width: 100%;
+
+}

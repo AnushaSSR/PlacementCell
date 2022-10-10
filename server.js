@@ -20,6 +20,8 @@ const flash= require('connect-flash');
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('cookie-parser')());
 
+app.use(express.static('./assets'));
+
 //telling the app to use it, to be used before the routes
 app.use(expressLayouts);
 

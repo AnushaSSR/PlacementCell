@@ -1,9 +1,34 @@
-<h1> <%= title %></h1>
+<link rel="stylesheet" href="/css/signin.css">
 
-<!-- sending the data create a session -->
-<form action="/employee/create-session" method="POST">
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Sign In">
-</form>
+<div id="signin">
+    <h4 class="text"> Employee Sign In Form</h4>
+    <div id="signin-form">
+      <form action="/employee/create-session" method="POST">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email text" name="email" class="form-control" placeholder="Registered Email" required>
+        </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
 
+        </div>
+  
+        <!-- Submit button -->
+
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not Registered? <a href="/employee/sign-up">Register</a></p>
+        </div>
+      
+  
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign In"> 
+      </form>
+    </div>
+    </div>
+    
+  
+  <!-- Pills content -->

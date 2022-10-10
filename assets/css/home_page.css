@@ -1,0 +1,167 @@
+#container {
+    margin-top: 2px;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 
+    background:
+    linear-gradient(rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)); */
+
+    /* background-image: url("https://images.shiksha.com/mediadata/images/articles/1575364406phpt8SyIy.jpeg"); */
+
+}
+
+#container::before {
+    content: "";
+    background-image: url("../images/main2.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+.user {
+    text-align: center;
+    /* color: #0aa1f2; */
+}
+
+.user h4 {
+    margin: 4%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.top h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    font-size: 1.5rem;
+    transform: translate(-50%, -50%);
+}
+
+.mid h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: black;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    font-size: 1.2rem;
+    transform: translate(-50%, -50%);
+}
+
+h4 {
+    font-weight: 900;
+}
+
+/*   
+  .lr p {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    margin: 0;
+  }
+  
+  .cap p {
+    padding: 20px;
+    color: white;
+    font: 12px Monaco, Mono-Space;
+    margin: 0;
+  } */
+
+.user {
+    display: block;
+}
+
+.home-icons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10% 0 10% 0;
+}
+
+
+.icon-action {
+    color: #000;
+    text-align: center;
+    z-index: 9000;
+
+}
+
+.icon {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6));
+    background-size: 200px 200px;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #0aa1f2;
+    /* margin: 10px 0 0 10px; */
+    position: relative;
+    float: left;
+    background-repeat: no-repeat;
+
+}
+
+#addStudent {
+
+    background-image: url("../images/addStudent.jpg");
+}
+
+#addInterview {
+    background-image: url("../images/int2.jpg");
+}
+
+#downloadReport {
+
+    background-image: url("../images/rep3.webp");
+
+
+}
+
+
+#externalJobs {
+    background-image: url("../images/findJob.webp");
+
+}
+
+#SignIn,
+#SignUp {
+    background-size: cover;
+
+    background-image: url("../images/login.png");
+
+}
+
+.hover:hover {
+
+    /* transform: translate(0%, -5%); */
+
+    transform: scale(1.2, 1.2);
+}

@@ -28,6 +28,7 @@ module.exports.displayInterviews = async function (req, res) {
     let interviews = await Interview.find();
     let students = await Student.find();
     try {
+
         return res.render("interview_details", {
             title: "Placement Cell | Interview Details Page",
             interviews: interviews,

@@ -24,8 +24,8 @@ module.exports.addStudent = async function (req, res) {
             });           
             student.scores = scores._id;
             await student.save();
-            let students = await Student.findOne({}).populate("score");
-            return res.redirect("back");
+            let students = await Student.find({}).populate("scores");
+                        return res.redirect("back");
         }
     } catch(err) {
         if(err) {console.log("Error in adding student", err); return }
@@ -37,13 +37,20 @@ module.exports.addStudent = async function (req, res) {
 //controller to display/render the students lists
 module.exports.displayStudents =async function(req, res) {
     try {
-        let students= await Student.find().populate("scores");
+        let students = await Student.find().populate({
+            path: "scores",
+            model: "Scores",
+        });
+
+
+        console.log(students);
+        // let students= await Student.find({}).populate("scores");
+        // let scores= await Scores.find();
         return res.render("student_details",{
             title:"Placement Cell | Student Details Page",
-            students: students
+            students: students,
         });
     } catch(err) {console.log("error in fetching students list",err);
         return res.redirect('back');
     };
 };
-

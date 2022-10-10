@@ -1,0 +1,43 @@
+#interview-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.table-style {
+    border: 2px solid blue;
+}
+
+.interview-card {
+    width: 60%;
+    padding: 1%;
+    text-align: center;
+    margin: 1%;
+    border: 2px solid blue;
+}
+
+.student-list {
+    height: 300px;
+    overflow-y: scroll;
+    margin-left: -10%;
+    margin-top: -1%;
+    z-index: 590;
+
+}
+
+#allocate-post {
+    text-align: center;
+    width: 100%;
+
+}
+
+#add-interview {
+    text-align: center;
+    background-color: azure;
+}
+
+#add-new-interview {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -62,6 +62,8 @@ module.exports.downloadReport = async function(req,res) {
     res.set('Content-Type', 'text/csv');
     res.status(200).send(report);
 
+    
+
     fs.writeFileSync('studentReport.csv', report);
     } catch(err) {
         console.log(err);
