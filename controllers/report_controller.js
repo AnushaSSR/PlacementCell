@@ -40,7 +40,9 @@ module.exports.downloadReport = async function(req,res) {
                 obj["Interview Date"]= date;
 
                 obj["Interview Company"]= i.company_name;
-                obj["Interview Student Result"]= s.result;
+                let result =null;
+                if(s.result !=" "){ result=s.result; }
+                obj["Interview Student Result"]= result;
                 
 
               

@@ -1,10 +1,7 @@
 <link rel="stylesheet" href="/css/update_results.css">
 
 <%if (locals.user){ %>
-    <h3> Updating results of the students,
-    <!-- <% let dateVal = new Date(interview.date);
-        let date= (dateVal.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})); %> -->
-        Attended interview held by <%= interview.company_name %> </h3>
+    <h3> Update results of the students: Attended interview held by <%= interview.company_name %> </h3>
         <section id="update-results" >
             <div id="students-results-container">
                 <% for (s of interview.studentsList){ %>

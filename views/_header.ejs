@@ -1,19 +1,19 @@
 <script src="https://kit.fontawesome.com/d1d222bc45.js" crossorigin="anonymous"></script>
 <header>
         <!-- Navbar container -->
-        <nav class="navbar navbar-expand-lg navbar-dark ">
+        <nav class="navbar navbar-expand-lg navbar-dark  ">
             <!-- Navigation menu -->
             <div class="container-fluid">
                 <!-- Logo -->
-                <!-- <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/">
                     <img
-                        src="/images/logo.png"
-                        width="100"
-                        height="60"
+                        src="/images/main.png"
+                        width="80"
+                        height="40"
                         alt="logo"
                         
                     >
-                </a> -->
+                </a>
                 <!-- Logo -->
                 <!-- Toggler button -->
 
@@ -42,19 +42,25 @@
 
                         <!-- Nav menu : Add Students -->
                         <li class="nav-item">
-                            <a class="nav-link" href="/students/display-students">Add Students</a>
+                            <a class="nav-link" href="/students/display-students">Students</a>
                         </li>
                         <!-- Nav menu : Add Students -->
                         <!-- Nav item: Contact Us -->
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/interviews/display-interviews">Add Interviews</a>
+                            <a class="nav-link" href="/interviews/display-interviews">Interviews</a>
                         </li>
 
-            
+                        <li class="nav-item">
+                            <a class="nav-link" href="/external-jobs/get-job-list">External Jobs</a>
+                        </li>
+
+           
+                        
                        
                         <li class="nav-item">
                             <a class="nav-link" href="/report/download-report">
+                            <!-- Button : Download button -->
 
                             <button
                                 class="btn-hover"
@@ -65,7 +71,7 @@
                             >
                             <i class="fa-solid fa-file-arrow-down"></i></i>
                             </button>
-                            <!-- Button : Search button -->
+                            <!-- Button : Download button -->
                        </a>
                     </li>
                     <li>
@@ -79,11 +85,11 @@
 
                    
                         <% } else { %>
-                            <li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/employee/sign-in">Sign In</a>
                             </li>
                 
-                            <li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/employee/sign-up"> Sign Up</a>
                             </li>
                     <% } %>
@@ -92,15 +98,10 @@
                         <!-- Nav item: Contact Us -->
                     </ul>
                     <!-- Nav Bar list-->
-                    <!-- Form: Enter the movie name to search -->
-                    <!-- Form: Enter the movie name to search -->
                 </div>
                 <!-- Nav Bar collapsible -->
             </div>
             <!-- Navigation menu -->
-
-        
-            <ul id="search-list"></ul>
         </nav>
         <!-- Navbar container -->
     </header>

@@ -3,15 +3,20 @@ body {
     overflow-x: hidden;
 }
 
+.navbar-expand-lg .navbar-collapse  {
+    justify-content: space-around;
+}
+
 /*styling for the main tag */
 header {
     background-color: #0aa1f2;
-}
+    }
 
 /* Styling for the navigation bar */
 /*sets the navigation item margin*/
 .nav-item {
-    margin-left: 100px;
+    margin-left: 80px; 
+    align-self: center;
 }
 
 /*sets the properties of the btn to get the search input, hover effect */

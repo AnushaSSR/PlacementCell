@@ -32,10 +32,13 @@ module.exports.create= function(req,res){
         if(!user) {
             Employee.create(req.body, function(err,user){
                 if(err){console.log('error in creating user while signing up'); return}
+                req.flash('success', 'Signed up successfully, login to continue!');
+
+  
             return res.redirect('/employee/sign-in');
             });
         } else {
-            // req.flash('success', 'You have signed up, login to continue!');
+            req.flash('error','User already exists');
             return res.redirect('back');
         }
     });
@@ -43,6 +46,7 @@ module.exports.create= function(req,res){
 
 //controller to create a session for the signing in user
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged in succesfully');
     return res.redirect('/');
 }
 
@@ -50,6 +54,7 @@ module.exports.createSession = function(req,res){
 module.exports.destroySession = function(req,res){   
     req.logout(function(err) {
         if (err) { return next(err); }
+        req.flash('success','You have Logged Out');
         res.redirect('/');
      });
 }

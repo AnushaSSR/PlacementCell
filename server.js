@@ -16,7 +16,7 @@ const passportLocal = require('./config/passport-local-strategy');
 
 const MongoStore= require('connect-mongo');
 const flash= require('connect-flash');
-
+const customMware = require('./config/middleware');
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('cookie-parser')());
 
@@ -24,6 +24,7 @@ app.use(express.static('./assets'));
 
 //telling the app to use it, to be used before the routes
 app.use(expressLayouts);
+
 
 app.set('layout extractStyles',true);
 app.set('layout extractLayouts', true);
@@ -57,7 +58,8 @@ app.use(passport.setAuthenticatedUser);
 
 // //setting the path of the views
 // app.set('views','./views');
-
+app.use(flash());
+app.use(customMware.setFlash);
 
 app.use('/',require('./routes'));
 

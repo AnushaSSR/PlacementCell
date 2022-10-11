@@ -17,6 +17,9 @@
                             <label for=""> <td>Date: </label>
                             <input type="date" name="date" id="date" class="form-control" placeholder="Select interview date" required>
                         </div>
+                        <div>
+                            <input type="submit" class="form-control btn btn-primary" value="Add New Interview">
+                        </div>
                 </form>    
                 </div>     
             </section>
@@ -48,7 +51,7 @@
         </div>
     </div>
 
-        <!-- Section to get the students list to allocaet to the interview -->
+        <!-- Section to get the students list to allocate to the interview -->
         <section id="<%= interview._id %>" style="display: none;" class="student-list">
             <div id="students-list-container" >
                 <form action="/interviews/allocate-student/<%= interview._id %>" method="POST" >

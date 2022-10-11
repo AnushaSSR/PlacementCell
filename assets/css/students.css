@@ -32,18 +32,23 @@ main{
 .key {
     font-weight: 500;
     text-transform: capitalize;
-
-
+}
+.required {
+    color: red;
 }
 
-#view-details{
+/* .flex {
+    display: flex;
+    justify-content: space-between;
+} */
+.view-details{
     border-bottom: 2px dotted brown;
     cursor: pointer;
 }
-.child, a{
-    
-
+a{
+    text-decoration: dashed;
 }
+
 .key-value {
     display: flex;
     justify-content: space-between;

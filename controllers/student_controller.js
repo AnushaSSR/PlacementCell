@@ -7,6 +7,7 @@ module.exports.addStudent = async function (req, res) {
     try {
         let student = await Student.find({ email: req.body.email });
         if (student && student.length) {
+            req.flash('error','Student already exists');
             return res.redirect('back');         
         } else {
             let student = await Student.create({
@@ -25,6 +26,8 @@ module.exports.addStudent = async function (req, res) {
             student.scores = scores._id;
             await student.save();
             let students = await Student.find({}).populate("scores");
+            req.flash('success','New Student added to the list');
+
                         return res.redirect("back");
         }
     } catch(err) {

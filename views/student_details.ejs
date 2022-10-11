@@ -11,7 +11,7 @@
                             <div class="card-header key-value name-span">
                                 
                                     <span class="key"><%=student.name %></span>   
-                                    <span class="value"><a id="view-details" onclick="openDetails('<%= student._id %>')">View Details</a></span>
+                                    <span class="value"><a id="view-details-<%= student._id %>" class="view-details" onclick="openDetails('<%= student._id %>')">View Details</a></span>
                                                             </div>   
                             <ul id="student-<%= student._id%>" class="list-group list-group-flush" style="display :none;">
                                 <li class="list-group-item key-value"><span class="key">Name:</span><span><%=student.name %></span></li>
@@ -35,20 +35,20 @@
     <div id="add-student-container"><h4>Add New Student:</h4>
         <form action="/students/add-student" id="add-new-student-form" method="POST">
             <table class="table table-hover">
-                <tr>
-                    <td class="key">Student name: </td>
+                <tr class="flex">
+                    <td class="key">Student name <span class="required">*</span>:</td>
                     <td><input type="text" name="name" class="form-control" id="student-name" placeholder="Enter Full name" required></td>
                 </tr>
-                <tr>
-                    <td class="key">College Name:</td>
+                <tr class="flex">
+                    <td class="key">College Name <span class="required">*</span>:</td>
                     <td><input type="text" name="college" class="form-control" id="student-college" placeholder="Enter College Name" required></td>
                 </tr>
-                <tr>
-                    <td class="key">Student Email</td>
+                <tr class="flex">
+                    <td class="key">Student Email <span class="required">*</span>:</td>
                     <td><input type="email" name="email" class="form-control" id="student-email" placeholder="Enter email" required></td>
                 </tr>
-                <tr>
-                    <td class="key">Select batch</td>
+                <tr class="flex">
+                    <td class="key">Select batch <span class="required">*</span>:</td>
                     <td>
                         <select name="batch" id="select-batch" class="form-select" required>
                             <option value="" disabled selected> Select student batch</option>
@@ -59,9 +59,9 @@
                             <option value="dsa">DSA</option>
                         </select>
                     </td>
-                </tr>
-                <tr>
-                    <td class="key">Select status</td>
+                </tr >
+                <tr class="flex">
+                    <td class="key">Select status <span class="required">*</span>:</td>
                     <td>
                         <select name="status" id="select-status" class="form-select" required>
                             <option value="" selected disabled>Placed/Not Placed</option>
@@ -70,21 +70,21 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td class="key">DSA Score:</td>
-                    <td><input type="number" name="dsa_score"class="form-control"  placeholder="Enter DSA score"></td>
+                <tr class="flex">
+                    <td class="key">DSA Score <span class="required">*</span>:</td>
+                    <td><input type="number" name="dsa_score"class="form-control"  placeholder="Enter DSA score" required></td>
                 </tr>
-                <tr>
-                    <td class="key">Webd Score:</td>
-                    <td><input type="number" name="webd_score" class="form-control" placeholder="Enter Web Dev score"></td>
+                <tr class="flex">
+                    <td class="key">Webd Score <span class="required">*</span>:</td>
+                    <td><input type="number" name="webd_score" class="form-control" placeholder="Enter Web Dev score" required></td>
                 </tr>
-                <tr>
-                    <td class="key">React Score:</td>
-                    <td><input type="number" name="react_score" class="form-control" placeholder="Enter React JS score"></td>
+                <tr class="flex">
+                    <td class="key">React Score <span class="required">*</span>:</td>
+                    <td><input type="number" name="react_score" class="form-control" placeholder="Enter React JS score" required></td>
                 </tr>
                 
             </table>
-            <td colspan="2" style="text-align: center;"><input type="submit" value="Add New Student"></td>
+            <td colspan="2" style="text-align: center;" ><input type="submit" class="btn btn-primary" value="Add New Student"></td>
         </form>    
     </div>     
     
@@ -99,7 +99,7 @@
         } else {
         std.style.display = 'none';   
         }
-        let detailsLink= document.getElementById("view-details");
+        let detailsLink= document.getElementById("view-details-"+id);
 
         if (detailsLink.innerText=='View Details') {
              detailsLink.innerText = 'Close X';
