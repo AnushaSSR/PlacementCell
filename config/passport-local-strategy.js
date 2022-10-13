@@ -8,7 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 // require user
 const Employee = require('../models/employee');
 
-// tell passport to use it
+// tell passport to use the local stratey for authentication
 passport.use(new LocalStrategy({
     usernameField: 'email'
 }, function(email, password, done){
@@ -21,11 +21,12 @@ passport.use(new LocalStrategy({
 }
 ));
 
-
+//serialise the user
 passport.serializeUser(function(user,done) {
     done(null, user.id);
 });
 
+//deserialize the user
 passport.deserializeUser(function(id,done) {
     Employee.findById(id,function(err,user) {
         if(err) { console.log("Error in finding user -->Passport"); return done(err);}
@@ -39,13 +40,14 @@ passport.checkAuthentication = function(req,res,next) {
     if (req.isAuthenticated()){
         return next();
     }
-    // if the user is ot signedin 
+    // if the user is not signedin 
     return res.redirect('/users/sign-in');
 } 
 
+//set the authenticated user
 passport.setAuthenticatedUser = function(req,res,next) {
     if(req.isAuthenticated()){
-        //req.user cmtains the current signed in user from the session cookie and we are just sending this to locals for the views 
+        //contains the current signed in user from the session cookie. We are sending this to locals for the views 
         res.locals.user = req.user;
         console.log(res.locals.user);
     }
