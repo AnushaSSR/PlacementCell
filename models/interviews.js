@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 const interviewSchema = new mongoose.Schema({
+    //interview conducted by: Company name
     company_name: {
         type: String,
         required: true,
     },
+    //interview date
     date: {
         type:Date,
         required: true
-    } ,    
+    } ,   
+    //list of student attended an interview with their results 
     studentsList: [
         {
             student: {
