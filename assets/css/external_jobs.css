@@ -1,8 +1,9 @@
+/*background color of main*/
 main {
     background-color: azure;
-
 }
 
+/*card border and margins */
 .card {
     border: 2px solid #0aa1f2;
     width: 80%;
@@ -10,11 +11,13 @@ main {
     margin-right: auto;
 }
 
+/*card header font weight and size */
 .card-header {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
+/*heading alignment and font weight*/
 h4 {
     font-weight: bold;
     text-align: center;

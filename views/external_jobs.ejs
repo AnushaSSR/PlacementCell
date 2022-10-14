@@ -1,23 +1,35 @@
+<!-- Style sheet link -->
 <link rel="stylesheet" href="/css/external_jobs.css"><h1 class="text-center"><%= title %></h1>
 <hr>
+<!-- <Google serach list -->
 <section id="external-jobs">
     <h4> Google Job Search Results</h4>
+    <!-- <Jobs list -->
     <div class="text-center row card-div" style="margin: 1% 1% 0 1%; border: 1px solid grey">
         <% for(j of externalJobsList.jobs_results) {%> 
+                <!-- Jobs details card -->
                 <div class="card text-white bg-dark mb-3" style="width: 18rem; margin:10px">
+                    <!-- <Jobs details -->
                     <div class="card-body">
                         <h5 class="card-title"><%=j.company_name%></h5>
                         <p class="card-text"><%= j.title %></p>
                     </div>
+                    <!-- <Jobs details -->
                 </div>
-           
+                <!-- Jobs details card -->           
         <% } %>   
     </div>
+    <!-- <Jobs list -->
+    
+    <!-- Jobs details and apply button -->
     <div class="text-center" style="margin: 0 1% 1% 1%; border: 1px solid grey">
-    <a href="<%= externalJobsList.search_metadata.google_jobs_url %>" target="_blank" class="btn btn-primary"> Click to Check details and apply</a>
-</div>
+        <a href="<%= externalJobsList.search_metadata.google_jobs_url %>" target="_blank" class="btn btn-primary"> Click to Check details and apply</a>
+    </div>
+    <!-- Jobs details and apply button -->
 </section>
+<!-- <Google serach list -->
 
+<!-- <Remote Jobs list> -->
 <section id="remote-jobs">
     <hr>
     <hr>
@@ -25,26 +37,35 @@
     <hr>
     
     <% for(j of remoteJobsList.jobs) {%>
-    <div class="card text-center" >
-        <div class="card-header" >
-            <%=j.company_name%>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Title: <%= j.title %></h5>
-          <p class="card-text">salary: <%= j.salary %></p>
-          <p class="card-text">Job Type: <%= j.job_type %></p>
-          <a href="<%= j.url %>" target="_blank" class="btn btn-primary">Click to Apply</a>
-        </div>
-        <div class="card-footer text-muted">
-            <% let dateVal = new Date(j.publication_date);
-            let date= (dateVal.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})); %>
-           Published on 
-          <%= date.toString() %>
-        </div>
-                 </div>
-                 <hr>
-                 <% } %>
+    <!-- Jobs details card -->  
+        <div class="card text-center" >
+            <!-- Job Company -->  
+            <div class="card-header" >
+                <%=j.company_name%>
+            </div>
+            <!-- Job details card body -->
+            <div class="card-body">
+                <h5 class="card-title">Title: <%= j.title %></h5>
+                <p class="card-text">salary: <%= j.salary %></p>
+                <p class="card-text">Job Type: <%= j.job_type %></p>
+                <a href="<%= j.url %>" target="_blank" class="btn btn-primary">Click to Apply</a>
+            </div>
+            <!-- Job details card body -->
 
+            <!-- Job details card footer -->
+            <div class="card-footer text-muted">
+                <% let dateVal = new Date(j.publication_date);
+                let date= (dateVal.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})); %>
+                Published on 
+                <%= date.toString() %>
+            </div>
+            <!-- Job details card footer -->
+        </div>
+        <!-- Jobs details card -->
+
+        <hr>
+    <% } %>
 </section>
+<!-- <Remote Jobs list> -->
 
 

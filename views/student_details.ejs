@@ -1,18 +1,24 @@
+<!-- Style sheet link -->
 <link rel="stylesheet" href="/css/students.css">
 <%if (locals.user){ %>
+    <!-- <Student details -->
     <section id="student-details">
-    
-        <div id="students-list-container">
+        <!-- <Student details Container -->
+         <div id="students-list-container">
             <h4> Students list</h4>
+            <!-- List :Students -->
             <ul class="student-list">
                 <% for(let student of students) {%> 
                     <li class="list-group-item child">
+                        <!-- Student card -->
                         <div class="card" style="width: 18rem;">
+                            <!-- Student card header-->
                             <div class="card-header key-value name-span">
-                                
-                                    <span class="key"><%=student.name %></span>   
-                                    <span class="value"><a id="view-details-<%= student._id %>" class="view-details" onclick="openDetails('<%= student._id %>')">View Details</a></span>
-                                                            </div>   
+                                <span class="key"><%=student.name %></span>   
+                                <span class="value"><a id="view-details-<%= student._id %>" class="view-details" onclick="openDetails('<%= student._id %>')">View Details</a></span>
+                            </div>
+                            <!-- Student card header-->
+                            <!-- Student details list-->
                             <ul id="student-<%= student._id%>" class="list-group list-group-flush" style="display :none;">
                                 <li class="list-group-item key-value"><span class="key">Name:</span><span><%=student.name %></span></li>
                                 <li class="list-group-item key-value"><span class="key">Email:</span><span><%=student.email %></span></li>
@@ -22,75 +28,83 @@
                                 <li class="list-group-item key-value"><span class="key">DSA Score:</span><span><%= student.scores.dsa_score %></span></li>
                                 <li class="list-group-item key-value"><span class="key">WebD Score:</span><span><%= student.scores.webd_score %></span></li>
                                 <li class="list-group-item key-value"><span class="key">React Score:</span><span><%= student.scores.react_score %></span></li>
-                            </ul>
+                            </ul>                    
+                            <!-- Student details list-->
                         </div>
+                        <!-- Student card -->                       
                     </li>
                     <br>
                 <% } %>  
-            </ul>   
-</div>
-         
-
-
-    <div id="add-student-container"><h4>Add New Student:</h4>
-        <form action="/students/add-student" id="add-new-student-form" method="POST">
-            <table class="table table-hover">
-                <tr class="flex">
-                    <td class="key">Student name <span class="required">*</span>:</td>
-                    <td><input type="text" name="name" class="form-control" id="student-name" placeholder="Enter Full name" required></td>
-                </tr>
-                <tr class="flex">
-                    <td class="key">College Name <span class="required">*</span>:</td>
-                    <td><input type="text" name="college" class="form-control" id="student-college" placeholder="Enter College Name" required></td>
-                </tr>
-                <tr class="flex">
-                    <td class="key">Student Email <span class="required">*</span>:</td>
-                    <td><input type="email" name="email" class="form-control" id="student-email" placeholder="Enter email" required></td>
-                </tr>
-                <tr class="flex">
-                    <td class="key">Select batch <span class="required">*</span>:</td>
-                    <td>
-                        <select name="batch" id="select-batch" class="form-select" required>
-                            <option value="" disabled selected> Select student batch</option>
-                            <option value="CC Fresher">Career Camp Fresher</option>
-                            <option value="CC Professional">Career Camp Professional</option>
-                            <option value="interview prep">Interview Preparation</option>
-                            <option value="python">PYTHON</option>
-                            <option value="dsa">DSA</option>
-                        </select>
-                    </td>
-                </tr >
-                <tr class="flex">
-                    <td class="key">Select status <span class="required">*</span>:</td>
-                    <td>
-                        <select name="status" id="select-status" class="form-select" required>
-                            <option value="" selected disabled>Placed/Not Placed</option>
-                            <option value="not_placed" > Not Placed</option>
-                            <option value="placed">placed</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="flex">
-                    <td class="key">DSA Score <span class="required">*</span>:</td>
-                    <td><input type="number" name="dsa_score"class="form-control"  placeholder="Enter DSA score" required></td>
-                </tr>
-                <tr class="flex">
-                    <td class="key">Webd Score <span class="required">*</span>:</td>
-                    <td><input type="number" name="webd_score" class="form-control" placeholder="Enter Web Dev score" required></td>
-                </tr>
-                <tr class="flex">
-                    <td class="key">React Score <span class="required">*</span>:</td>
-                    <td><input type="number" name="react_score" class="form-control" placeholder="Enter React JS score" required></td>
-                </tr>
-                
-            </table>
-            <td colspan="2" style="text-align: center;" ><input type="submit" class="btn btn-primary" value="Add New Student"></td>
-        </form>    
-    </div>     
-    
-</section>
+            </ul>
+            <!-- List :Students -->  
+        </div>
+        <!-- <Student details Container -->
+        
+        <!-- Add Student Container -->
+        <div id="add-student-container"><h4>Add New Student:</h4>
+            <!-- Form: Add New Student -->
+            <form action="/students/add-student" id="add-new-student-form" method="POST">
+                <table class="table table-hover">
+                    <tr class="flex">
+                        <td class="key">Student name <span class="required">*</span>:</td>
+                        <td><input type="text" name="name" class="form-control" id="student-name" placeholder="Enter Full name" required></td>
+                    </tr>
+                    <tr class="flex">
+                        <td class="key">College Name <span class="required">*</span>:</td>
+                        <td><input type="text" name="college" class="form-control" id="student-college" placeholder="Enter College Name" required></td>
+                    </tr>
+                    <tr class="flex">
+                        <td class="key">Student Email <span class="required">*</span>:</td>
+                        <td><input type="email" name="email" class="form-control" id="student-email" placeholder="Enter email" required></td>
+                    </tr>
+                    <tr class="flex">
+                        <td class="key">Select batch <span class="required">*</span>:</td>
+                        <td>
+                            <select name="batch" id="select-batch" class="form-select" required>
+                                <option value="" disabled selected> Select student batch</option>
+                                <option value="CC Fresher">Career Camp Fresher</option>
+                                <option value="CC Professional">Career Camp Professional</option>
+                                <option value="interview prep">Interview Preparation</option>
+                                <option value="python">PYTHON</option>
+                                <option value="dsa">DSA</option>
+                            </select>
+                        </td>
+                    </tr >
+                    <tr class="flex">
+                        <td class="key">Select status <span class="required">*</span>:</td>
+                        <td>
+                            <select name="status" id="select-status" class="form-select" required>
+                                <option value="" selected disabled>Placed/Not Placed</option>
+                                <option value="not_placed" > Not Placed</option>
+                                <option value="placed">placed</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="flex">
+                        <td class="key">DSA Score <span class="required">*</span>:</td>
+                        <td><input type="number" name="dsa_score"class="form-control"  placeholder="Enter DSA score" required></td>
+                    </tr>
+                    <tr class="flex">
+                        <td class="key">Webd Score <span class="required">*</span>:</td>
+                        <td><input type="number" name="webd_score" class="form-control" placeholder="Enter Web Dev score" required></td>
+                    </tr>
+                    <tr class="flex">
+                        <td class="key">React Score <span class="required">*</span>:</td>
+                        <td><input type="number" name="react_score" class="form-control" placeholder="Enter React JS score" required></td>
+                    </tr>    
+                </table>
+                <!-- Add student button -->
+                <td colspan="2" style="text-align: center;" ><input type="submit" class="btn btn-primary" value="Add New Student"></td>
+                <!-- Add student button -->
+            </form>
+            <!-- Form: Add New Student -->    
+        </div>     
+        <!-- Add Student Container -->    
+    </section>
+    <!-- <Student details -->
 <% } %> 
 
+<!-- Script for onclick to view details and modify element properties -->
 <script>
     function openDetails(id) {
         let std= document.getElementById("student-"+id);
@@ -100,7 +114,6 @@
         std.style.display = 'none';   
         }
         let detailsLink= document.getElementById("view-details-"+id);
-
         if (detailsLink.innerText=='View Details') {
              detailsLink.innerText = 'Close X';
              detailsLink.style.color= "brown";
@@ -108,7 +121,6 @@
             detailsLink.innerText = 'View Details';
             detailsLink.style.color= "black";
         }
-        
-    
     }
 </script>
+<!-- Script for onclick to view details and modify element properties -->

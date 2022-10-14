@@ -1,26 +1,23 @@
+/*set the backf=ground color*/
 main {
     background-color: azure;
 }
 
+/*border to body */
 body {
     border: 2px solid #0aa1f7;
 }
 
+/*Sign in div styling */
+
+/*Set margin to div and align the contents*/
 #signin {
     margin: 5% 10%;
     text-align: center;
     width: 80%;
 }
 
-#table-style {
-    border: 2px solid #0aa1f2;
-}
-
-.form-outline {
-    color: #0aa1f2;
-    background-color: #0aa1f2;
-}
-
+/*align the form into center and adjust width*/
 #signin-form {
     margin-top: 3%;
     margin-left: auto;
@@ -28,13 +25,14 @@ body {
     width: 60%;
 }
 
-.btn-primary {
-    background-color: #0aa1f7;
+/*setting the outline of the form input*/
+.form-outline {
+    color: #0aa1f2;
+    background-color: #0aa1f2;
 }
 
-form {
-    vertical-align: center;
-    text-align: center;
-    width: 100%;
 
+/*set the background color of the sign in button */
+.btn-primary {
+    background-color: #0aa1f7;
 }

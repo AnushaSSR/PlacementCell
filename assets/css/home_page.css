@@ -1,3 +1,4 @@
+/* Styling for background image of home page */
 #container {
     margin-top: 2px;
     position: relative;
@@ -6,13 +7,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* 
-    background:
-    linear-gradient(rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.6)); */
-
-    /* background-image: url("https://images.shiksha.com/mediadata/images/articles/1575364406phpt8SyIy.jpeg"); */
-
 }
 
 #container::before {
@@ -28,72 +22,9 @@
     opacity: 0.5;
 }
 
-.user {
-    text-align: center;
-    /* color: #0aa1f2; */
-}
+/* Home icons styling*/
 
-.user h4 {
-    margin: 4%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 3rem;
-}
-
-.top h6 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    color: black;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    font-size: 1.5rem;
-    transform: translate(-50%, -50%);
-}
-
-.mid h6 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    color: black;
-    text-transform: capitalize;
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    font-size: 1.2rem;
-    transform: translate(-50%, -50%);
-}
-
-h4 {
-    font-weight: 900;
-}
-
-/*   
-  .lr p {
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    margin: 0;
-  }
-  
-  .cap p {
-    padding: 20px;
-    color: white;
-    font: 12px Monaco, Mono-Space;
-    margin: 0;
-  } */
-
-.user {
-    display: block;
-}
-
+/* to display home icons in the flex */
 .home-icons {
     display: flex;
     flex-wrap: wrap;
@@ -104,14 +35,19 @@ h4 {
     margin: 10% 0 10% 0;
 }
 
+/*To transform icon and text on hovering */
+.hover:hover {
+    transform: scale(1.2, 1.2);
+}
 
+/* Action name and alignment */
 .icon-action {
     color: #000;
     text-align: center;
     z-index: 9000;
-
 }
 
+/* styling for the icon to set the background image properties */
 .icon {
     background:
         linear-gradient(rgba(0, 0, 0, 0.6),
@@ -122,46 +58,39 @@ h4 {
     background-color: white;
     border-radius: 50%;
     border: 2px solid #0aa1f2;
-    /* margin: 10px 0 0 10px; */
     position: relative;
     float: left;
     background-repeat: no-repeat;
-
 }
 
-#addStudent {
+/* set the action name font weight */
+h4 {
+    font-weight: 900;
+}
 
+/*Set the background image of add student icon */
+#addStudent {
     background-image: url("../images/addStudent.jpg");
 }
 
+/*Set the background image of add interview icon */
 #addInterview {
     background-image: url("../images/int2.jpg");
 }
 
+/*Set the background image of add dwonload report icon */
 #downloadReport {
-
     background-image: url("../images/rep3.webp");
-
-
 }
 
-
+/*Set the background image of external jobs icon */
 #externalJobs {
     background-image: url("../images/findJob.webp");
-
 }
 
+/*Set the background images of sign-up and sign-in icons */
 #SignIn,
 #SignUp {
     background-size: cover;
-
     background-image: url("../images/login.png");
-
-}
-
-.hover:hover {
-
-    /* transform: translate(0%, -5%); */
-
-    transform: scale(1.2, 1.2);
 }

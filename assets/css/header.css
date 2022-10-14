@@ -1,26 +1,32 @@
-/* body styling */
+/* body styling
 body {
     overflow-x: hidden;
+} */
+
+/*header background color */
+header {
+    background-color: #0aa1f2;
 }
 
-.navbar-expand-lg .navbar-collapse  {
+/* Styling for the navigation bar */
+/* Justifying the navbar content */
+.navbar-expand-lg .navbar-collapse {
     justify-content: space-around;
 }
 
-/*styling for the main tag */
-header {
-    background-color: #0aa1f2;
-    }
-
-/* Styling for the navigation bar */
 /*sets the navigation item margin*/
 .nav-item {
-    margin-left: 80px; 
+    margin-left: 80px;
     align-self: center;
 }
 
-/*sets the properties of the btn to get the search input, hover effect */
+/*links color and font weight*/
+.navbar li a {
+    color: black;
+    font-weight: bold;
+}
 
+/*sets the properties of the btn to dwonload the report, hover effect */
 .btn-hover {
     color: black;
     transition-duration: 0.4s;
@@ -31,27 +37,13 @@ header {
     background-color: gold;
 }
 
-/*search button icon*/
+/* download button icon
 #btn-icon {
     color: black;
-}
+} */
 
-.btn-style {
+/* .btn-style {
     border: 1px solid yellow;
     background-color: black;
     color: gold;
-}
-
-/* form input styling
-.d-flex {
-    width: 35%;
-}
-
-#form-input {
-    margin-left: 20%;
 } */
-
-.navbar li a {
-    color: black;
-    font-weight: bold;
-}

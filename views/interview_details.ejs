@@ -1,60 +1,81 @@
+<!-- Style sheet link -->
 <link rel="stylesheet" href="/css/interviews.css">
 
 <!-- display details only if the employee is logged in -->
 <%if (locals.user){ %>
-        <!-- Form to add a new interview -->
-    
-        <section id="add-interview">
-            <hr>
-                <div id="add-new-interview"><h4>Add New Interview:</h4>
-                <hr>
-                    <form action="/interviews/add-interview" id="add-new-interview-form" method="POST">
-                        <div class="form-outline mb-4">
-                            <label for=""> <td>Company name: </label>
-                            <input type="text" name="company_name" id="company-name" class="form-control" placeholder="Enter Company Name" required>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label for=""> <td>Date: </label>
-                            <input type="date" name="date" id="date" class="form-control" placeholder="Select interview date" required>
-                        </div>
-                        <div>
-                            <input type="submit" class="form-control btn btn-primary" value="Add New Interview">
-                        </div>
-                </form>    
-                </div>     
-            </section>
-        
+    <!-- Form to add a new interview -->
+    <section id="add-interview">
+    <hr>
+        <!-- Div : Add new interview -->
+        <div id="add-new-interview"><h4>Add New Interview:</h4>
+        <hr>
+            <!-- Form :Add new interview -->
+            <form action="/interviews/add-interview" id="add-new-interview-form" method="POST">
+                <!-- Div: Company Name -->
+                <div class="form-outline mb-4">
+                    <label for=""> <td>Company name: </label>
+                    <input type="text" name="company_name" id="company-name" class="form-control" placeholder="Enter Company Name" required>
+                </div>
+                <!-- Div: Company Name -->
+                <!-- Div: Date -->
+                <div class="form-outline mb-4">
+                    <label for=""> <td>Date: </label>
+                    <input type="date" name="date" id="date" class="form-control" placeholder="Select interview date" required>
+                </div>
+                <!-- Div: Date -->
+                <!-- Button:Add new interview  -->
+                <div>
+                    <input type="submit" class="form-control btn btn-primary" value="Add New Interview">
+                </div>
+                <!-- Button:Add new interview  -->
+            </form>    
+            <!-- Form :Add new interview -->
+        </div>     
+        <!-- Div : Add new interview -->
+    </section>
+    <!-- Form to add a new interview -->
     
     <!-- Section to show the list of interviews -->
     <section id="interview-details">
     <hr>
     <h2 class="text-center"> Interviews list</h2>
-    <div id="interview-cards">    
-    <% for(let interview of interviews) {%>  
-        <% let id= interview._id %> 
-        <div class="card interview-card">
-            <div class="card-header" id="interview-company"><%= interview.company_name %>
-                <br>
-                <a href="/interviews/get-allocated-students/<%= interview._id %>" class="allocated-students" id="update-results-<%= interview._id %>" > update results</a> 
-            </div>
-            <div class="card-body">
-              <p class="card-text" id="interview-date">
-                <% let dateVal = new Date(interview.date);
-                let date= (dateVal.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})); %>
-                <%= date.toString();
-                 %> 
-              </p>
-            </div>   
-        
-        <div class="card-footer">
-            <a  class="btn btn-primary" id="allocate-student-button-<%= interview._id %>" onclick="allocateStudent('<%= interview._id %>')">Allocate Student</a>            
-        </div>
-    </div>
+        <!-- Div: Interview cards -->
+        <div id="interview-cards">    
+        <% for(let interview of interviews) {%>  
+            <% let id= interview._id %> 
+            <!-- Interview card -->
+            <div class="card interview-card">
+                <!-- Interview card header -->
+                <div class="card-header" id="interview-company"><%= interview.company_name %>
+                    <br>
+                    <a href="/interviews/get-allocated-students/<%= interview._id %>" class="allocated-students" id="update-results-<%= interview._id %>" > update results</a> 
+                </div>
+                <!-- Interview card header -->
 
-        <!-- Section to get the students list to allocate to the interview -->
-        <section id="<%= interview._id %>" style="display: none;" class="student-list">
-            <div id="students-list-container" >
-                <form action="/interviews/allocate-student/<%= interview._id %>" method="POST" >
+                <!-- Interview card body -->
+                <div class="card-body">
+                <p class="card-text" id="interview-date">
+                    <% let dateVal = new Date(interview.date);
+                    let date= (dateVal.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})); %>
+                    <%= date.toString();%> 
+                </p>
+                </div>   
+                <!-- Interview card header -->
+
+                <!-- Interview card footer -->
+                <div class="card-footer">
+                    <a  class="btn btn-primary" id="allocate-student-button-<%= interview._id %>" onclick="allocateStudent('<%= interview._id %>')">Allocate Student</a>            
+                </div>
+                <!-- Interview card footer -->
+            </div>
+            <!-- Interview card -->
+
+            <!-- Section to get the students list to allocate to the interview -->
+            <section id="<%= interview._id %>" style="display: none;" class="student-list">
+                <!-- Students list container -->
+                <div id="students-list-container" >
+                    <form action="/interviews/allocate-student/<%= interview._id %>" method="POST" >
+                    <!-- Students list table -->
                     <table id="students-table" style="border: 2px;" class="table table-dark table-hover table-style"  >
                         <thead>
                             <tr>
@@ -67,7 +88,6 @@
                         </thead>
                         <tbody>
                             <% for(let student of students) {%>
-
                                 <tr class="table-light">
                                     <td><input type="checkbox" value="<%= student._id%>" name="checkbox[]"></td>
                                     <td name="std_name" value="">
@@ -82,26 +102,25 @@
                                     <td>
                                         <%= student.status %>
                                     </td>
-                                </tr> 
-                                
-                 
+                                </tr>                              
                             <% } %>
-                                                </tbody>
+                        </tbody>
                     </table>
+                    <!-- Students list table -->
+                    <!-- <Allocate students Button -->
                     <input type="submit" class="btn btn-primary" name="Allocate to interview" id="allocate-post" value="Allocate">
-
-                </form>
-            </div> 
-        </section> 
+                    </form>
+                </div> 
+                <!-- Students list container -->
+            </section> 
         <% } %>
-    </div>
-
-               
+        </div>              
     </section>
+<% } %>
+<!-- display details only if the employee is logged in -->
 
-
-    <!-- Script to trigger onclick event on Allocate Student button  -->
-    <script>
+<!-- Script to trigger onclick event on Allocate Student button  -->
+<script>
     function allocateStudent(id) {
         var node = document.getElementById(id);
         var button=document.getElementById("allocate-student-button-"+id);
@@ -117,5 +136,6 @@
         node.style.display = 'none';   
         }
     }
-    </script>
-<% } %>
+</script>
+<!-- Script to trigger onclick event on Allocate Student button  -->
+

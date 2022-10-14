@@ -1,109 +1,105 @@
 <script src="https://kit.fontawesome.com/d1d222bc45.js" crossorigin="anonymous"></script>
 <header>
-        <!-- Navbar container -->
-        <nav class="navbar navbar-expand-lg navbar-dark  ">
-            <!-- Navigation menu -->
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand" href="/">
-                    <img
-                        src="/images/main.png"
-                        width="80"
-                        height="40"
-                        alt="logo"
-                        
-                    >
-                </a>
-                <!-- Logo -->
-                <!-- Toggler button -->
-
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+    <!-- Navbar container -->
+    <nav class="navbar navbar-expand-lg navbar-dark  ">
+        <!-- Navigation menu -->
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="/">
+                <img
+                    src="/images/main.png"
+                    width="80"
+                    height="40"
+                    alt="logo"
                 >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Toggler button -->
-                <!-- Nav Bar collapsible -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <!-- Nav Bar list-->
-                    <ul class="navbar-nav">
-                        <!-- Nav Menu : HOME -->
-                        <li class="nav-item">
-                            <a class="nav-link"  href="/">Home</a>
-                        </li>
-                        <!-- Nav Menu : HOME -->
-                        <% if(locals.user){ %>
-
-                        <!-- Nav menu : Add Students -->
+            </a>
+            <!-- Logo -->
+            <!-- Toggler button -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Toggler button -->
+            <!-- Nav Bar collapsible -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <!-- Nav Bar list-->
+                <ul class="navbar-nav">
+                    <!-- Nav Menu : HOME -->
+                    <li class="nav-item">
+                        <a class="nav-link"  href="/">Home</a>
+                    </li>
+                    <!-- Nav Menu : HOME -->
+                    <!-- if user is logged in -->
+                    <% if(locals.user){ %>
+                        <!-- Nav item : Students -->
                         <li class="nav-item">
                             <a class="nav-link" href="/students/display-students">Students</a>
                         </li>
-                        <!-- Nav menu : Add Students -->
-                        <!-- Nav item: Contact Us -->
-
+                        <!-- Nav item : Students -->
+                        <!-- Nav item: Interviews -->
                         <li class="nav-item">
                             <a class="nav-link" href="/interviews/display-interviews">Interviews</a>
                         </li>
-
+                        <!-- Nav item: Interviews -->
+                        <!-- Nav item: External Jobs -->
                         <li class="nav-item">
                             <a class="nav-link" href="/external-jobs/get-job-list">External Jobs</a>
                         </li>
-
-           
-                        
-                       
+                        <!-- Nav item: External Jobs -->
+                        <!-- Nav item: Download report -->                       
                         <li class="nav-item">
                             <a class="nav-link" href="/report/download-report">
                             <!-- Button : Download button -->
-
-                            <button
-                                class="btn-hover"
-                                id="download"
-                                type="submit"
-                                title="Download report"
-                                
-                            >
-                            <i class="fa-solid fa-file-arrow-down"></i></i>
-                            </button>
-                            <!-- Button : Download button -->
-                       </a>
-                    </li>
-                    <li>
-                        <li class="nav-item">  
-                            <a class="nav-link" href="/employee/sign-out"> Sign Out</a>
-            
+                                <button
+                                    class="btn-hover"
+                                    id="download"
+                                    type="submit"
+                                    title="Download report"            
+                                > <i class="fa-solid fa-file-arrow-down"></i>
+                                </button>
+                                <!-- Button : Download button -->
+                            </a>
                         </li>
-                        <li class="nav-item text-center"> <a class="nav-link" href="/"><div ><button style="border:none; background-color: #0aa1f2;"><i class="fa-solid fa-user"></i></button></div>Hi, <%= user.name %></a></li>
-
-                    </li>
-
-                   
-                        <% } else { %>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/employee/sign-in">Sign In</a>
+                        <!-- Nav item: Download report -->                          
+                        <!-- Nav item: User / Sign out -->                       
+                        <li>
+                            <!-- Nav item: Sign out -->                       
+                            <li class="nav-item">  
+                                 <a class="nav-link" href="/employee/sign-out"> Sign Out</a>
                             </li>
-                
-                            <li class="nav-item">
-                                <a class="nav-link" href="/employee/sign-up"> Sign Up</a>
+                            <!-- Nav item: Sign out -->                       
+                            <!-- Nav item: User -->                       
+                            <li class="nav-item text-center"> <a class="nav-link" href="/">
+                                <div><button style="border:none; background-color: #0aa1f2;"><i class="fa-solid fa-user"></i></button></div>Hi, <%= user.name %></a>
                             </li>
-                    <% } %>
-                    
-            
-                        <!-- Nav item: Contact Us -->
-                    </ul>
-                    <!-- Nav Bar list-->
-                </div>
-                <!-- Nav Bar collapsible -->
+                            <!-- Nav item: User -->                       
+                        </li>
+                        <!-- //user session does not exists or user not logged in  -->
+                    <% } else { %>
+                        <!-- Nav item: Sign in-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/employee/sign-in">Sign In</a>
+                        </li>
+                        <!-- Nav item: Sign in-->
+                        <!-- Nav item: Sign up-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/employee/sign-up"> Sign Up</a>
+                        </li>
+                        <!-- Nav item: Sign up-->
+                    <% } %>           
+                </ul>
+                <!-- Nav Bar list-->
             </div>
-            <!-- Navigation menu -->
-        </nav>
-        <!-- Navbar container -->
-    </header>
-    
-
+            <!-- Nav Bar collapsible -->
+        </div>
+        <!-- Navigation menu -->
+    </nav>
+    <!-- Navbar container -->
+</header>

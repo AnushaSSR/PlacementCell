@@ -16,7 +16,7 @@ router.get('/sign-in', employeeController.signIn);
 //route to post the employee sign up data
 router.post('/create', employeeController.create);
 
-//route to create a seesion for the employee sign in 
+//route to create a session for the employee sign in,authenticated by passport 
 router.post('/create-session', passport.authenticate(
     'local',
     {failureRedirect: '/employee/sign-in'},

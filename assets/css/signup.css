@@ -1,10 +1,17 @@
+/*set background color*/
 main {
     background-color: azure;
 }
 
+/*border for body*/
 body {
     border: 2px solid #0aa1f2;
 }
+
+
+/*Sign up div styling */
+
+/*Set margin to div and align the contents*/
 
 #signup {
     margin: 5% 10%;
@@ -12,29 +19,21 @@ body {
     width: 80%;
 }
 
+/*align the form into center and adjust width*/
 #signup-form {
     margin-top: 3%;
-
     margin-left: auto;
     margin-right: auto;
     width: 60%;
 }
 
-.btn-primary {
-    background-color: #0aa1f2;
-}
-
+/*setting the outline of the form input*/
 .form-outline {
     color: #0aa1f2;
     background-color: #0aa1f2;
-    /* 
-    align-content: center;
-    text-align: center; */
 }
 
-form {
-    vertical-align: center;
-    text-align: center;
-    width: 100%;
-
+/*set the background color of the sign up button */
+.btn-primary {
+    background-color: #0aa1f2;
 }

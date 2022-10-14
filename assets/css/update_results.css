@@ -1,18 +1,16 @@
+/*background color of main*/
 main {
     background-color: azure;
     margin: 1%;
 }
 
+/*h3 heading styling */
 h3 {
     text-align: center;
 }
 
-#card-body-divs {
-    display: flex;
-    justify-content: space-around;
-}
-
-.interview-card {
+/*Styling fo rthe studentresult card*/
+.student-result-card {
     font-weight: 600;
 
     border: 2px solid #0aa1f2;
@@ -21,11 +19,19 @@ h3 {
     margin-right: auto;
 }
 
-#update {
-    background-color: #0aa1f2;
+/*card body value styling */
+#card-body-divs {
+    display: flex;
+    justify-content: space-around;
 }
 
+/*card header, footer text alignment*/
 .card-header,
 .card-footer {
     text-align: center;
+}
+
+/*update button background color*/
+#update {
+    background-color: #0aa1f2;
 }

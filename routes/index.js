@@ -4,6 +4,7 @@ const router =express.Router();
 
 // accessthe home controller
 const homeController = require('../controllers/home_controller'); 
+//route to get home page
 router.get('/', homeController.home);
 
 //use the employee route

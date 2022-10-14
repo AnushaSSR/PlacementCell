@@ -1,6 +1,9 @@
-main{
+/*set the background*/
+main {
     background-color: azure;
 }
+
+/* Set display as flex for the section */
 #student-details {
     display: flex;
     flex-wrap: wrap;
@@ -10,53 +13,58 @@ main{
     border: 2px solid white;
     width: 100%;
     text-align: center;
-    top:50px;
+    top: 50px;
     padding: 2%;
 }
+
+/*set width of students list*/
+#students-list {
+    width: 80%
+}
+
+/*list element border and padding*/
 .list-group-item {
     border: 2px sloid blue;
     display: inline-block;
     padding: 2%;
-    
 }
 
-#students-list {
-    width:80%
-
-}
-.name-span{
-    display: flex;
-    justify-content: space-around;
-   }
-
-.key {
-    font-weight: 500;
-    text-transform: capitalize;
-}
-.required {
-    color: red;
-}
-
-/* .flex {
-    display: flex;
-    justify-content: space-between;
-} */
-.view-details{
-    border-bottom: 2px dotted brown;
-    cursor: pointer;
-}
-a{
-    text-decoration: dashed;
-}
-
+/*styling for name the view details span*/
 .key-value {
     display: flex;
     justify-content: space-between;
 }
 
- #add-new-student-form{
-    background-color: azure;
-    
-    width:100%
+/* set the styling of the span of student name*/
+.name-span {
+    display: flex;
+    justify-content: space-around;
+}
 
+/*properties of the key*/
+.key {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/*color of the required elemnet */
+.required {
+    color: red;
+}
+
+/*styling fro view details link */
+.view-details {
+    border-bottom: 2px dotted brown;
+    cursor: pointer;
+}
+
+/* styling for anchor tag */
+a {
+    text-decoration: dashed;
+}
+
+/*width and background color of add- new student form */
+#add-new-student-form {
+    background-color: azure;
+    width: 100%
 }

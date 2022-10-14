@@ -10,7 +10,7 @@ module.exports.addInterview = async function (req, res) {
         let interview = await Interview.find({ company_name: req.body.company_name } && { date: req.body.date });
         if (interview && interview.length) {
             //if exists
-            req.flash('error','Interview already scheduled on same date');
+            req.flash('error', 'Interview already scheduled on same date');
             return res.redirect('back');
         } else {
             //not existing, create a new record
@@ -19,7 +19,7 @@ module.exports.addInterview = async function (req, res) {
                 date: req.body.date
             });
             await interview.save();
-            req.flash('success','New Interview added to the list');
+            req.flash('success', 'New Interview added to the list');
             res.redirect('back');
         }
     } catch (err) {
@@ -57,22 +57,19 @@ module.exports.allocateStudent = async function (req, res) {
             let allocatedStudent = await Student.findById(s).populate();//check if student is already allocated and populate
             let allocStd = {
                 student: allocatedStudent,
-                result: " " }
+                result: " "
+            }
             let allocatedInterview = await Interview.findById(req.params.id);//get the interview, for which the student is allocated to
 
             //filter if the student to be allocated is already allocted to the interview
-            let currentAllocatedStudent = allocatedInterview.studentsList.filter(s => {   
+            let currentAllocatedStudent = allocatedInterview.studentsList.filter(s => {
                 return s.student.equals(allocatedStudent._id);
             });
 
             //if not allocated
             if (!currentAllocatedStudent.length) {
                 //if student not allocated to interview, push to list
-                console.log(`Student ${allocatedStudent.name} allocated to interview`);
                 allocatedInterview.studentsList.push(allocStd);
-            }
-            else {
-                console.log(`Student already allocated for specified interview not added to list ${allocatedStudent.name}`);
             }
             await allocatedInterview.save();
         }
@@ -81,7 +78,7 @@ module.exports.allocateStudent = async function (req, res) {
             title: "Placement Cell | Interview Details Page",
             interviews: interviews,
             students: students,
-                });
+        });
     } catch (err) {
         console.log("Error in allocating student to an interview", err);
         return res.redirect('back');
@@ -122,18 +119,18 @@ module.exports.updateResults = async function (req, res) {
             model: "Student",
         });//fetch the student's allocated to interview by the id sent in params 
 
-        if(allocatedInterview.studentsList && allocatedInterview.studentsList.length){
+        if (allocatedInterview.studentsList && allocatedInterview.studentsList.length) {
             //if allocated interview has students
             allocatedInterview.studentsList.forEach(s => {
-                if (s.student._id.equals(student._id) && (s.result !== req.body.result) && (req.body.result !== undefined) ) {
+                if (s.student._id.equals(student._id) && (s.result !== req.body.result) && (req.body.result !== undefined)) {
                     //if result is not null / undefined and student is in the allocated list update the result 
                     s.result = req.body.result;
                     allocatedInterview.save();
                     req.flash('success', `Result of ${s.student.name} updated to ${s.result}`);
-                }        
-            }); 
+                }
+            });
             return res.redirect('back');
-        } 
+        }
     } catch (err) {
         return res.redirect("back");
     }
