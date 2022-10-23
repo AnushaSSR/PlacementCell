@@ -51,6 +51,7 @@ module.exports.create = function (req, res) {
 
 //controller to create a session for the signing in user
 module.exports.createSession = function (req, res) {
+
     req.flash('success', 'Logged in succesfully');
     return res.redirect('/');
 }

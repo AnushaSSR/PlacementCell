@@ -11,7 +11,7 @@
 
 #container::before {
     content: "";
-    background-image: url("../images/main2.webp");
+    background-image: url("../images/background.webp");
     background-size: cover;
     background-attachment: fixed;
     position: absolute;
@@ -75,12 +75,12 @@ h4 {
 
 /*Set the background image of add interview icon */
 #addInterview {
-    background-image: url("../images/int2.jpg");
+    background-image: url("../images/interview.jpg");
 }
 
 /*Set the background image of add dwonload report icon */
 #downloadReport {
-    background-image: url("../images/rep3.webp");
+    background-image: url("../images/report.webp");
 }
 
 /*Set the background image of external jobs icon */
