@@ -82,15 +82,18 @@
                     </tr>
                     <tr class="flex">
                         <td class="key">DSA Score <span class="required">*</span>:</td>
-                        <td><input type="number" name="dsa_score"class="form-control"  placeholder="Enter DSA score" required></td>
+                        <td><input type="number" name="dsa_score"class="form-control" min="1"
+                            max="100" placeholder="Enter DSA score (0-100)" required></td>
                     </tr>
                     <tr class="flex">
                         <td class="key">Webd Score <span class="required">*</span>:</td>
-                        <td><input type="number" name="webd_score" class="form-control" placeholder="Enter Web Dev score" required></td>
+                        <td><input type="number" name="webd_score" class="form-control"  min="1"
+                            max="100" placeholder="Enter Web Dev score(0-100)" required></td>
                     </tr>
                     <tr class="flex">
                         <td class="key">React Score <span class="required">*</span>:</td>
-                        <td><input type="number" name="react_score" class="form-control" placeholder="Enter React JS score" required></td>
+                        <td><input type="number" name="react_score" class="form-control"  min="1"
+                            max="100" placeholder="Enter React JS score(0-100)" required></td>
                     </tr>    
                 </table>
                 <!-- Add student button -->
