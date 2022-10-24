@@ -51,8 +51,8 @@
 .icon {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   background-size: 200px 200px;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background-color: white;
   border-radius: 50%;
   border: 2px solid #0aa1f2;
