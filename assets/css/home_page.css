@@ -50,7 +50,7 @@
 /* styling for the icon to set the background image properties */
 .icon {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-  background-size: 150px 150px;
+  background-size: 200px 200px;
   width: 150px;
   height: 150px;
   background-color: white;
