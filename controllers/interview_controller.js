@@ -7,12 +7,10 @@ module.exports.addInterview = async function (req, res) {
   let students = await Student.find({}); //find the students
   try {
     //fetch the interview details
-    let interview = await Interview.find(
-      { company_name: req.body.company_name } && { date: req.body.date }
-    );
-    console.log("Interview is ", interview);
-    console.log("company name is ", req.body.company_name);
-    console.log("");
+    let interview = await Interview.find({
+      company_name: req.body.company_name,
+      date: req.body.date,
+    });
     if (interview && interview.length) {
       //if exists
       req.flash("error", "Interview already scheduled on same date");
