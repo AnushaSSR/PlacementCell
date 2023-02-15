@@ -30,4 +30,4 @@
 This will run on Port: 8000 (if nothing is specified in env port). 
 
 
-# <a href="https://anu-placement-cell.herokuapp.com/" target="_blank">Click here</a> to see the Placementcell Cell application.
+# <a href="https://placement-cell-vrvc.onrender.com/" target="_blank">Click here</a> to see the Placementcell Cell application.
